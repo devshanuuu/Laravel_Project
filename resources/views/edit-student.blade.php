@@ -1,35 +1,68 @@
-<!DOCTYPE html>
-<html>
+@extends('layouts.app')
 
-<head>
-    <title>Edit Student</title>
-</head>
+@section('content')
 
-<body>
+<div class="card shadow">
 
-    <h2>Edit Student</h2>
+    <div class="card-header">
+        <h3>Edit Student</h3>
+    </div>
 
-    <form action = "/students/{{$student->id}}" method="POST">
-        @csrf
-        @method('PUT')
+    <div class="card-body">
 
-        <label>Name</label><br>
-        <input type="text" value="{{ $student->name }}">
-        <br><br>
+        <form action="/students/{{ $student->id }}" method="POST">
 
-        <label>Email</label><br>
-        <input type="email" value="{{ $student->email }}">
-        <br><br>
+            @csrf
+            @method('PUT')
 
-        <label>Age</label><br>
-        <input type="number" value="{{ $student->age }}">
-        <br><br>
+            <div class="mb-3">
+                <label class="form-label">Name</label>
+                <input
+                    type="text"
+                    name="name"
+                    class="form-control"
+                    value="{{ $student->name }}">
+            </div>
 
-        <label>Course</label><br>
-        <input type="text" value="{{ $student->course }}">
-        <br><br>
+            <div class="mb-3">
+                <label class="form-label">Email</label>
+                <input
+                    type="email"
+                    name="email"
+                    class="form-control"
+                    value="{{ $student->email }}">
+            </div>
 
-    </form>
+            <div class="mb-3">
+                <label class="form-label">Age</label>
+                <input
+                    type="number"
+                    name="age"
+                    class="form-control"
+                    value="{{ $student->age }}">
+            </div>
 
-</body>
-</html>
+            <div class="mb-3">
+                <label class="form-label">Course</label>
+                <input
+                    type="text"
+                    name="course"
+                    class="form-control"
+                    value="{{ $student->course }}">
+            </div>
+
+            <button type="submit" class="btn btn-primary">
+                Update Student
+            </button>
+
+            <a href="/students" class="btn btn-secondary">
+                Back
+            </a>
+
+        </form>
+
+    </div>
+
+</div>
+
+@endsection

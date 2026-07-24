@@ -1,43 +1,51 @@
-<!DOCTYPE html>
-<html>
+@extends('layouts.app')
 
-<head>
-    <title>Add Student</title>
-</head>
+@section('content')
 
-<body>
+<div class="card shadow">
 
-    <h1>Add Student</h1>
+    <div class="card-header">
+        <h3>Add Student</h3>
+    </div>
 
-    <form action ="/students" method ="POST">
-         @csrf
-        
-        <label>Name</label>
-        <br>
-        <input type="text" name = "name">
-        <br><br>
+    <div class="card-body">
 
-        <label>Email</label>
-        <br>
-        <input type="email" name = "email">
-        <br><br>
+        <form action="/students" method="POST">
 
-        <label>Age</label>
-        <br>
-        <input type="number" name = "age">
-        <br><br>
+            @csrf
 
-        <label>Course</label>
-        <br>
-        <input type="text" name = "course">
-        <br><br>
+            <div class="mb-3">
+                <label class="form-label">Name</label>
+                <input type="text" name="name" class="form-control">
+            </div>
 
-        <button type="submit">
-            Save Student
-        </button>
+            <div class="mb-3">
+                <label class="form-label">Email</label>
+                <input type="email" name="email" class="form-control">
+            </div>
 
-    </form>
+            <div class="mb-3">
+                <label class="form-label">Age</label>
+                <input type="number" name="age" class="form-control">
+            </div>
 
-</body>
+            <div class="mb-3">
+                <label class="form-label">Course</label>
+                <input type="text" name="course" class="form-control">
+            </div>
 
-</html>
+            <button type="submit" class="btn btn-primary">
+                Save Student
+            </button>
+
+            <a href="/students" class="btn btn-secondary">
+                Back
+            </a>
+
+        </form>
+
+    </div>
+
+</div>
+
+@endsection

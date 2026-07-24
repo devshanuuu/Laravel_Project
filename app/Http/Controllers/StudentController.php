@@ -58,4 +58,11 @@ class StudentController extends Controller
         $student->save();
         return redirect('/students');
     }
+
+    public function destroy($id)
+    {
+        $student = Student::findorFail($id);
+        $student->delete();
+        return redirect('/students');
+    }
 }
